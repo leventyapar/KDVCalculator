@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:nestedScrollingEnabled="true"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Tutar"
+        android:inputType="numberDecimal"
+        android:maxLength="9"
+        android:minHeight="48dp"
+        android:minWidth="150dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/include_KDV_switch"
+        android:text="KDV Dahil Tutar "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/amount"
+        ></Switch>
+    <TextView
+        android:id="@+id/tw_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="KDV oranı seçiniz"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/include_KDV_switch" />
+
+    <RadioGroup
+        android:id="@+id/KDVOptions_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        android:checkedButton="@id/one_percent_radio_button"
+        app:layout_constraintTop_toBottomOf="@id/tw_1">
+
+        <RadioButton
+            android:id="@+id/one_percent_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/eight_percent_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%8"
+            android:textSize="20sp"
+            android:textStyle="normal|bold" />
+
+        <RadioButton
+            android:id="@+id/eighteen_percent_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%18"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <RadioButton
+            android:id="@+id/anotherKDVrate_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Diğer %"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/anotherKDVrate_text_view"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="160dp"
+        android:hint="Oran"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@id/KDVOptions_radio_group"
+        app:layout_constraintStart_toEndOf="@id/KDVOptions_radio_group"
+        app:layout_constraintTop_toBottomOf="@+id/tw_1" />
+
+    <Button
+        android:id="@+id/calculate_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hesapla"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/KDVOptions_radio_group"
+        tools:layout_editor_absoluteY="352dp" />
+    <TextView
+        android:id="@+id/result_1_text_view"
+        android:layout_marginTop="15dp"
+        tools:text="XXXXXXXXXXXXXXXX"
+        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/calculate_button"
+        app:layout_constraintTop_toBottomOf="@id/calculate_button"/>
+
+    <TextView
+        android:id="@+id/result_2_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/result_1_text_view"
+        app:layout_constraintTop_toBottomOf="@id/result_1_text_view"
+        tools:text="XXXXXXXXXXXXXXXX" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
